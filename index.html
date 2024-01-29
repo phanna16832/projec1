@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Your existing styles here */
+    </style>
+</head>
+
+<body>
+    <header>
+        Phanna Online Shop
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Order</a></li>
+            <li><a href="#">Instock</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+    <input type="search" name="search_bar" id="search">
+    <button id="searchButton">Search</button>
+
+    <!-- Add a div to display search results -->
+    <div id="searchResults"></div>
+    
+    <!-- Use the accept attribute for capturing files -->
+    <input type="file" accept="image/*" capture="user">
+
+    <script>
+        // Add an event listener for the Enter key in the search input
+        document.getElementById('search').addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                performSearch(event);
+            }
+        });
+
+        document.getElementById('searchButton').addEventListener('click', performSearch);
+
+        function performSearch(event) {
+            event.preventDefault();
+
+            var searchInputValue = document.getElementById('search').value.toLowerCase();
+
+            if (searchInputValue.trim() !== '') {
+                var data = [
+                    { title: "Telegram", file: "telegramSave reply.html" },
+                    { title: "CCSL", file: "ccsl.html" },
+                    { title: "Fee Calculation", file: "calculate.html" },
+                    { title: "Taobao and Pinduoduo", file: "project1.html", img: "tb.jpg" },
+                    { title: "id and CE ID", text: "Password: 888888 ID: លេខទូរសព្ទ័: 0 ", file: "#" }
+                    // Add more results as needed
+                ];
+
+                var filteredResults = data.filter(result => result.title.toLowerCase().includes(searchInputValue));
+
+                displayResults(filteredResults);
+            } else {
+                clearResults();
+            }
+        }
+
+        function displayResults(results) {
+            var searchResultsContainer = document.getElementById('searchResults');
+            searchResultsContainer.innerHTML = '';
+
+            if (results.length > 0) {
+                results.forEach(result => {
+                    var resultItem = document.createElement('div');
+                    resultItem.innerHTML = `<h3>${result.title}</h3>`;
+
+                    if (result.img) {
+                        var imgElement = document.createElement('img');
+                        imgElement.src = result.img;
+                        resultItem.appendChild(imgElement);
+                    }
+
+                    if (result.text) {
+                        var textElement = document.createElement('p');
+                        textElement.textContent = result.text;
+                        resultItem.appendChild(textElement);
+                    }
+
+                    var detailsLink = document.createElement('a');
+                    detailsLink.href = result.file;
+                    detailsLink.textContent = 'View Details';
+                    detailsLink.classList.add('details-link');
+                    resultItem.appendChild(detailsLink);
+
+                    searchResultsContainer.appendChild(resultItem);
+                });
+            } else {
+                // Display a message when no results are found
+                searchResultsContainer.innerHTML = '<p>No results found.</p>';
+            }
+        }
+
+        function clearResults() {
+            var searchResultsContainer = document.getElementById('searchResults');
+            searchResultsContainer.innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>
