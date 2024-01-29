@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
     <style>
         /* Your existing styles here */
     </style>
 </head>
-
 <body>
     <header>
         Phanna Online Shop
@@ -23,14 +23,23 @@
         </ul>
     </nav>
     <input type="search" name="search_bar" id="search">
-    <button id="searchButton">Search</button>
-
+    <button id="searchButton">Search</button><br><br>
     <!-- Add a div to display search results -->
     <div id="searchResults"></div>
-    
-    <!-- Use the accept attribute for capturing files -->
-    <input type="file" accept="image/*" capture="user">
-
+    <form action="">
+        <label for="name">ឈ្មោះ</label>
+        <input type="text"><br><br>
+        <label for="adrres">អាស័យដ្ឋាន :</label>
+        <input type="text"><br><br>
+        <label for="phone number"> លេខទូរសព្ទ័</label>
+        <input type="tel">
+        <button>រក្សាទុក</button>
+    </form>
+    <div>
+        <input type="file">
+        <label for="camera">ថត</label>
+        <input type="file" id="soundFile" capture="user" accept="image/*" />
+    </div>
     <script>
         // Add an event listener for the Enter key in the search input
         document.getElementById('search').addEventListener('keyup', function (event) {
@@ -48,11 +57,10 @@
 
             if (searchInputValue.trim() !== '') {
                 var data = [
-                    { title: "Telegram", file: "telegramSave reply.html" },
-                    { title: "CCSL", file: "ccsl.html" },
-                    { title: "Fee Calculation", file: "calculate.html" },
-                    { title: "Taobao and Pinduoduo", file: "project1.html", img: "tb.jpg" },
-                    { title: "id and CE ID", text: "Password: 888888 ID: លេខទូរសព្ទ័: 0 ", file: "#" }
+                    { title: "ah smos", text: "kal ban jes sava" },
+                    { title: "", file: "" },
+                    { title: "", file: "", img: "" },
+                    { title: "", text: "", file: "#" }
                     // Add more results as needed
                 ];
 
