@@ -11,6 +11,7 @@
         /* Your existing styles here */
     </style>
 </head>
+
 <body>
     <header>
         Phanna Online Shop
@@ -33,13 +34,17 @@
         <input type="text"><br><br>
         <label for="phone number"> លេខទូរសព្ទ័</label>
         <input type="tel">
-        <button>រក្សាទុក</button>
-    </form>
-    <div>
-        <input type="file">
+        <button>រក្សាទុក</button><br><br>
+        <input type="file" accept="image/*"><br><br>
         <label for="camera">ថត</label>
-        <input type="file" id="soundFile" capture="user" accept="image/*" />
-    </div>
+        <input type="file" id="soundFile" capture="user" accept="image/*" /><br><br>
+        <input type="submit">
+    </form><br><br>
+    <div id="text">
+        <button onclick="test1()" class="btn">Click me</button><br><br>
+        <span id="result"></span>
+      </div>
+      <script src="script.js"></script>
     <script>
         // Add an event listener for the Enter key in the search input
         document.getElementById('search').addEventListener('keyup', function (event) {
@@ -57,7 +62,7 @@
 
             if (searchInputValue.trim() !== '') {
                 var data = [
-                    { title: "ah smos", text: "kal ban jes sava" },
+                    { title: "ah smos", text: "kal ban jes sava", file:"#" },
                     { title: "", file: "" },
                     { title: "", file: "", img: "" },
                     { title: "", text: "", file: "#" }

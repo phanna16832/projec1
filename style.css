@@ -27,3 +27,12 @@ form button{
 form  button:hover{
   background-color: #0000b3;
 }
+#test{
+  border: solid, 1px;
+}
+.btn{
+  background-color: red;
+}
+#result{
+  color: red;
+}
