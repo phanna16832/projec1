@@ -1,50 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="km">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
-    <style>
-        /* Your existing styles here */
-    </style>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@300&family=Siemreap&family=Suwannaphum:wght@300&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header>
-        Phanna Online Shop
-    </header>
+    <header>Phanna Online shop</header>
     <nav>
         <ul>
-            <li><a href="#">Order</a></li>
-            <li><a href="#">Instock</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="#">ទំនិញក្នុងស្តុក</a></li>
+            <li><a href="#">ទំំនិញបញ្ជាទិញក្រៅប្រទេស</a></li>
+            <li><a href="#">ទំនាក់ទំនង</a></li>
         </ul>
     </nav>
-    <input type="search" name="search_bar" id="search">
-    <button id="searchButton">Search</button><br><br>
-    <!-- Add a div to display search results -->
-    <div id="searchResults"></div>
-    <form action="http://localhost:3000/save-address" method="post">
-        <label for="name">ឈ្មោះ</label>
-        <input type="text"><br><br>
-        <label for="adrres">អាស័យដ្ឋាន :</label>
-        <input type="text"><br><br>
-        <label for="phone number"> លេខទូរសព្ទ័</label>
-        <input type="tel">
-        <button>រក្សាទុក</button><br><br>
-        <input type="file" accept="image/*"><br><br>
-        <label for="camera">ថត</label>
-        <input type="file" id="soundFile" capture="user" accept="image/*" /><br><br>
-        <input type="submit">
-    </form><br><br>
-    <div id="text">
-        <button onclick="test1()" class="btn">Click me</button><br><br>
-        <span id="result"></span>
-      </div>
-      <script src="script.js"></script>
+    <div id="search-container">
+    <input type="search" name="search" id="search">
+    <input type="button" value="search" id="searchResult">
+</div>
+<div class="content">
+<div class="pr1">
+    <img src="" alt="">
+    <p>តម្លៃ: 9$</p>
+    <button class="btn"><a href="">បញ្ជាទិញឥឡូវនេះ</a></button>
+    <button class="btn">ព័ត៌មានលម្អិត</button>
+</div>
+<div class="pr2">
+    <img src="" alt="">
+    <p>តម្លៃ: 12$</p>
+    <button class="btn">បញ្ជាទិញឥឡូវនេះ</button>
+    <button class="btn">ព័ត៌មានលម្អិត</button>
+</div>
+<div class="pr3">
+    <img src="" alt="">
+    <p>តម្លៃ: 10$</p>
+    <button class="btn">បញ្ជាទិញឥឡូវនេះ</button>
+    <button class="btn">ព័ត៌មានលម្អិត</button>
+</div>
+</div>
 </body>
-
 </html>
