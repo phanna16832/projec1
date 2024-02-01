@@ -1,0 +1,9 @@
+    .col-md-4{
+        border-width: 210px;
+    }
+    .rounded {
+        width: 200px;
+    }
+    #link:hover{
+        background-color: pink;
+    }
