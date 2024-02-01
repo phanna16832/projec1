@@ -1,23 +1,20 @@
- // Add an event listener for the Enter key in the search input
- document.getElementById('search').addEventListener('keyup', function (event) {
-    if (event.key === 'Enter') {
-        performSearch(event);
-    }
+//search code
+document.addEventListener("DOMContentLoaded", function () {
+    var searchForm = document.getElementById('searchForm');
+    searchForm.addEventListener('submit', performSearch);
 });
-
-document.getElementById('searchButton').addEventListener('click', performSearch);
 
 function performSearch(event) {
     event.preventDefault();
 
-    var searchInputValue = document.getElementById('search').value.toLowerCase();
+    var searchInputValue = document.getElementById('searchInput').value.toLowerCase();
 
     if (searchInputValue.trim() !== '') {
         var data = [
-            { title: "ah smos", text: "kal ban jes sava", file:"#" },
-            { title: "", file: "" },
-            { title: "", file: "", img: "" },
-            { title: "", text: "", file: "#" }
+            { title: "address/ អាស័យដ្ឋាន", file:"address.html"},
+            { title: ""},
+            { title: "", img: "tb.jpg"},
+            { title: "", text: " ", file: "" }  
             // Add more results as needed
         ];
 
@@ -33,45 +30,33 @@ function displayResults(results) {
     var searchResultsContainer = document.getElementById('searchResults');
     searchResultsContainer.innerHTML = '';
 
-    if (results.length > 0) {
-        results.forEach(result => {
-            var resultItem = document.createElement('div');
-            resultItem.innerHTML = `<h3>${result.title}</h3>`;
+    results.forEach(result => {
+        var resultItem = document.createElement('div');
+        resultItem.innerHTML = `<h3>${result.title}</h3>`;
 
-            if (result.img) {
-                var imgElement = document.createElement('img');
-                imgElement.src = result.img;
-                resultItem.appendChild(imgElement);
-            }
+        if (result.img) {
+            var imgElement = document.createElement('img');
+            imgElement.src = result.img;
+            resultItem.appendChild(imgElement);
+        }
 
-            if (result.text) {
-                var textElement = document.createElement('p');
-                textElement.textContent = result.text;
-                resultItem.appendChild(textElement);
-            }
+        if (result.text) {
+            var textElement = document.createElement('p');
+            textElement.textContent = result.text;
+            resultItem.appendChild(textElement);
+        }
 
-            var detailsLink = document.createElement('a');
-            detailsLink.href = result.file;
-            detailsLink.textContent = 'View Details';
-            detailsLink.classList.add('details-link');
-            resultItem.appendChild(detailsLink);
+        var detailsLink = document.createElement('a');
+        detailsLink.href = result.file;
+        detailsLink.textContent = 'View Details';
+        detailsLink.classList.add('details-link');
+        resultItem.appendChild(detailsLink);
 
-            searchResultsContainer.appendChild(resultItem);
-        });
-    } else {
-        // Display a message when no results are found
-        searchResultsContainer.innerHTML = '<p>គ្មានទិន្នន័យដែលស្វែងរក<p>';
-    }
+        searchResultsContainer.appendChild(resultItem);
+    });
 }
 
 function clearResults() {
     var searchResultsContainer = document.getElementById('searchResults');
     searchResultsContainer.innerHTML = '';
-}
-
-test1 = () =>{
-var result = document.getElementById("result");
-const text = "I love u ❤️❤️❤️";
-
-result.textContent = text;
 }

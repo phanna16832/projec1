@@ -37,25 +37,30 @@ a {
 a:hover{
   background-color: #f207bf;
 }
-#search-container {
+#searchForm {
   text-align: center;
   padding: 10px;
 }  
-#search-container {
+#searchForm {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
 }
-#searchResult{
+.search{
   margin-left: 15px;
   border: none;
   background-color: pink;
   color: grey;
   font-style: bold;
 }
-#searchResult:hover{
+.search:hover{
 background-color: red;
+}
+#searchResults{
+  text-align: center;
+  color: pink;
+  text-decoration: none;
 }
 .content {
   display: flex;
