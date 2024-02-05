@@ -11,28 +11,34 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Hanuman:wght@300&family=Siemreap&family=Suwannaphum:wght@300&display=swap"
         rel="stylesheet">
-        <!--style-->
-        <link rel="stylesheet" href="preorder.css">
+    <!--style-->
+    <link rel="stylesheet" href="preorder.css">
+    <!--favicon-->
+    <link rel="shortcut icon" href="img/parcel.png" type="image/x-icon">
 </head>
 
 <body>
     <nav>
         <ul>
             <li><a href="./index.html">ទំព័រមុខ</a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
             <li><a href="address.html">អាស័យដ្ឋាន ទទួលទំនិញ</a></li>
         </ul>
     </nav>
-    <form action="">
-        <label>ឈ្មោះទំនិញ    :</label>
+    <div class="search">
+        <input type="search" placeholder="ស្វែងរកទំនិញ" id="search">
+        <input type="submit" value="ស្វែងរក" onclick="search()">
+    </div>
+    
+    <div id="results"></div>
+    <form action="" >
+        <label>ឈ្មោះទំនិញ :</label>
         <input type="text" required><br><br>
-        <label for="link">លីងនៃទំនិញ  :</label>
+        <label for="link">លីងនៃទំនិញ :</label>
         <input type="url" required><br><br>
         <label for="more info">កំណត់សម្គាល់</label>
-        <input type="text"  placeholder="ម៉ូត ពណ៌ ទំហំ ...." required><br><br>
+        <input type="text" placeholder="ម៉ូត ពណ៌ ទំហំ ...." required><br><br>
         <label for="quantity">ចំនួន</label>
-        <input type="number" min="1" max="99"required><br><br>
+        <input type="number" min="1" max="99" required><br><br>
         <label for="warehouse">ជ្រើសរើសប្រភេទដឹកជញ្ជូន</label>
         <select required id="info" onchange="information()">
             <option value=""></option>

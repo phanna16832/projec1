@@ -62,7 +62,10 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 16px;
 }
-
+#result{
+    color: #eb34c0;
+    font-size: 1rem;
+}
 input[type="submit"]:hover {
     background-color: #45a049;
 }
@@ -78,5 +81,8 @@ input[type="submit"]:hover {
 
     input[type="submit"] {
         font-size: 14px;
+    }
+    #result{
+        font-size: 1rem;
     }
 }
