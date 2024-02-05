@@ -34,7 +34,7 @@ li {
   float: left;
 }
 
-a {
+li a {
   display: block;
   color: #333;
   text-align: center;
@@ -98,24 +98,24 @@ a:hover{
     <ul>
         <li><a href="./index.html">ទំព័រមុខ</a></li>
         <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
+        <li><a href="preorder.html">ការបញ្ជាទិញទំនិញក្រៅប្រទេស</a></li>
         <li><a href="address.html">អាស័យដ្ឋាន ទទួលទំនិញ</a></li>
     </ul>
 </nav>
 
   <form action="">
     <label for="name">ឈ្មោះ អ្នកទទួល :</label>
-    <input type="text" name="name" id="name"><br><br>
+    <input type="text" name="name" id="name" required><br><br>
 
     <label for="phone">លេខទូរស័ព្ទ :</label>
-    <input type="tel" name="phone" id="phone"><br><br>
+    <input type="tel" name="phone" id="phone" required><br><br>
 
     <label for="address">អាស័យដ្ឋាន :</label>
-    <input type="text" name="address" id="address"><br><br>
+    <input type="text" name="address" id="address" required><br><br>
 
     <input type="file" accept="image/*">
     <label for="camera">ថតទីតាំង :</label>
-    <input type="file" accept="image*/" capture="user">
+    <input type="file" accept="image*/" capture="eviroment">
 
     <input type="submit" value="Submit">
   </form>
