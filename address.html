@@ -92,6 +92,11 @@ a:hover{
     input[type="submit"]:hover {
       background-color: #45a049;
     }
+    #show{
+    color: pink;
+    border: 1px solid;
+    text-align: center;
+}
   </style>
 </head>
 
@@ -105,7 +110,7 @@ a:hover{
     </ul>
 </nav>
 
-  <form action="">
+  <form action="" id="addressForm">
     <label for="name">ឈ្មោះ អ្នកទទួល :</label>
     <input type="text" name="name" id="name" required><br><br>
 
@@ -121,6 +126,8 @@ a:hover{
 
     <input type="submit" value="Submit">
   </form>
+  <div id="show"></div>
+  <script src="address.js"></script>
 </body>
 
 </html>

@@ -2,6 +2,13 @@ function search() {
     // Get the search input value
     var searchTerm = document.getElementById('search').value;
 
+    // Check if the search term is empty
+    if (searchTerm.trim() === '') {
+        // Clear the results container
+        document.getElementById('results').innerHTML = '';
+        return; // Exit the function early if the search term is empty
+    }
+
     // Simulate search results (you can replace this with your actual search logic)
     var results = [
         { title: 'ស្បែកជើង', imgSrc: 'pr1.jpg', file:"", text:"ស្បែកជើងស្រោះស្អាតតម្លៃត្រឹម8$"},
@@ -48,15 +55,4 @@ function search() {
             resultsContainer.appendChild(resultDiv);
         });
     }
-}
-
-
-information = () => {
-    var info = document.getElementById("info");
-    var result = document.getElementById("result");
-    var selectedOption = info.options[info.selectedIndex].text;
-    text.style.color = "#ff00ff";
-
-    text = "ចំពោះទំនិញទិញក្នុងហាងតែមួយ ប្រសិនខាងហាងបំបែកកញ្ចប់ទំនិញ ខាងប្អូននឹងរាប់កញ្ចប់ទំនិញគិតថ្លៃដឹកតាមចំនួនកញ្ចប់ទំនិញដូចគ្នា សំរាប់កញ្ចប់ដែលក្រោម1គីឡូ ខាងប្អូនគិតមួយគីឡូ លើស1គីឡូយក ទំហំនិង ទម្ងង់ប្រៀបធៀបគ្នាមួយណាធំជាងយកមួយនឹងជាគោលគិតថ្លៃដឹកជញ្ចូន \n ចំពោះសេវាជួយទិញគឺមិនមានការបង្រួមកញ្ចប់ទំនិញទេបង"
-    result.innerHTML = text;
 }
