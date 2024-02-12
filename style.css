@@ -1,9 +1,65 @@
-    .col-md-4{
-        border-width: 210px;
-    }
-    .rounded {
-        width: 200px;
-    }
-    #link:hover{
-        background-color: pink;
-    }
+body {
+    font-family: 'Content', system-ui;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.nav {
+    background-color: #0f67f5;
+    color: white;
+    width: 200px; /* Set width for the vertical navigation */
+    height: 100vh; /* Set height to full viewport height */
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+.nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    margin-bottom: 20px; /* Add margin between list items */
+}
+
+.nav a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: pink;
+    color: orange;
+}
+
+.content {
+    flex: 1; /* Take remaining space */
+    padding: 20px; /* Adjust padding as needed */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Add space between items */
+}
+
+.product {
+    width: calc(25% - 20px); /* 25% width with 20px margin between items */
+    margin-bottom: 20px; /* Add margin bottom for spacing */
+    padding: 10px; /* Add padding for inner content */
+}
+
+.product img {
+    width: 100%;
+}
+
+.product p {
+    margin: 5px 0;
+}
+
+.product input[type="submit"] {
+    margin-right: 5px;
+}
