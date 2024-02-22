@@ -1,68 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var searchForm = document.getElementById('searchForm');
-    searchForm.addEventListener('submit', performSearch);
-});
+function uploadImage() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
 
-function performSearch(event) {
-    event.preventDefault();
-
-    var searchInputValue = document.getElementById('searchInput').value.toLowerCase();
-
-    if (searchInputValue.trim() !== '') {
-        var data = [
-            { title: "address , អាស័យដ្ឋាន , 收货地址", file: "address.html" },
-            { title: "ស្បែកជើង  , shoe , 鞋子", img: "pr1.jpg", text: "lorem" },
-            { title: "", img: "tb.jpg" },
-            { title: "", text: " ", file: "" }
-            // Add more results as needed
-        ];
-
-        var filteredResults = data.filter(result => result.title.toLowerCase().includes(searchInputValue));
-        displayResults(filteredResults);
-    } else {
-        clearResults();
+    if (!file) {
+        alert('Please select a file');
+        return;
     }
-}
 
-function displayResults(results) {
-    var searchResultsContainer = document.getElementById('searchResults');
-    searchResultsContainer.innerHTML = '';
+    const formData = new FormData();
+    formData.append('file', file);
 
-    results.forEach(result => {
-        var resultItem = document.createElement('div');
-        resultItem.innerHTML = `<h3>${result.title}</h3>`;
-
-        if (result.img) {
-            var imgElement = document.createElement('img');
-            imgElement.src = result.img;
-            imgElement.style.width = "170px";
-            imgElement.style.marginBottom = "2%";
-            imgElement.style.margin = "0 auto"; // Center horizontally
-            resultItem.appendChild(imgElement);
+    fetch('/extract_text', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert(data.error);
+        } else {
+            document.getElementById('result').innerText = data.text;
         }
-
-        if (result.text) {
-            var textElement = document.createElement('p');
-            textElement.style.color = "pink";
-            textElement.textContent = result.text;
-            resultItem.appendChild(textElement);
-        }
-
-        if (result.file) {
-            var detailsLink = document.createElement('a');
-            detailsLink.href = result.file;
-            detailsLink.textContent = 'View Details';
-            detailsLink.classList.add('details-link');
-            resultItem.appendChild(detailsLink);
-        }
-
-        // Applying global styles to the entire resultItem
-        resultItem.style.color = "blue";
-        searchResultsContainer.appendChild(resultItem);
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
-}
-
-function clearResults() {
-    var searchResultsContainer = document.getElementById('searchResults');
-    searchResultsContainer.innerHTML = '';
 }
