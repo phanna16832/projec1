@@ -1,21 +1,23 @@
-function requestNotificationPermission() {
-    // Check if the browser supports notifications
-    if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
-    } else {
-        // Request permission from the user
-        Notification.requestPermission().then(function (permission) {
-            if (permission === "granted") {
-                showNotification("Thank for purchasing in the app");
-            }
-        });
-    }
-}
+// Add an event listener to the button
+document.getElementById('notification-btn').addEventListener('click', function() {
+    // Request permission for notifications
+    Notification.requestPermission().then(function(permission) {
+        // Check if permission is granted
+        if (permission === 'granted') {
+            // Create a new notification
+            const notification = new Notification('Ah beoun Online Shop', {
+                body: 'This is more text',
+                data: { hello: 'world' },
+                icon: "logo.png",
+                tag: ""
+            });
 
-function showNotification(title, body) {
-    // Check if notifications are supported and permission is granted
-    if (Notification.permission === "granted") {
-        // Create and show the notification
-        var notification = new Notification(title, { body: body });
-    }
-}
+            // Add an event listener to the notification
+            notification.addEventListener('error', function() {
+                alert('Error occurred while displaying notification');
+            });
+        } else {
+            alert('Permission for notifications denied');
+        }
+    });
+});

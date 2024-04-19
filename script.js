@@ -32,28 +32,31 @@ function addToCart(productId) {
 }
 
 // Function to handle checkout
-function requestNotificationPermission() {
-    // Check if the browser supports notifications
-    if (!("Notification" in window)) {
-        alert("This browser does not support desktop notification");
-    } else {
-        // Request permission from the user
-        Notification.requestPermission().then(function (permission) {
-            if (permission === "granted") {
-                showNotification("Thank for purchasing in the app");
+function checkout() {
+    // Request permission for push notifications
+    if ('Notification' in window) {
+        Notification.requestPermission().then(function(permission) {
+            if (permission === 'granted') {
+                // If permission is granted, show a notification
+                showNotification('Thank you for purchasing in the app');
             }
+        });
+    } else {
+        alert('This browser does not support desktop notifications');
+    }
+}
+
+// Function to show a notification
+function showNotification(message) {
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.ready.then(function(registration) {
+            registration.showNotification('Checkout Notification', {
+                body: message,
+                icon: '/path/to/notification-icon.png'
+            });
         });
     }
 }
-
-function showNotification(title, body) {
-    // Check if notifications are supported and permission is granted
-    if (Notification.permission === "granted") {
-        // Create and show the notification
-        var notification = new Notification(title, { body: body });
-    }
-}
-
 
 // Initialize
 displayProducts();
