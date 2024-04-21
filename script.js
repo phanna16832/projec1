@@ -11,10 +11,15 @@ function displayProducts() {
     productsSection.innerHTML = '';
     products.forEach(product => {
         const productDiv = document.createElement('div');
+        productDiv.classList.add('col-md-4', 'mb-4');
         productDiv.innerHTML = `
-            <h3>${product.name}</h3>
-            <p>Price: $${product.price}</p>
-            <button onclick="addToCart(${product.id})">Add to Cart</button>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${product.name}</h5>
+                    <p class="card-text">Price: $${product.price}</p>
+                    <button onclick="addToCart(${product.id})" class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
         `;
         productsSection.appendChild(productDiv);
     });
@@ -26,6 +31,7 @@ function addToCart(productId) {
     if (product) {
         const cartItems = document.getElementById('cart-items');
         const li = document.createElement('li');
+        li.classList.add('list-group-item');
         li.textContent = `${product.name} - $${product.price}`;
         cartItems.appendChild(li);
     }
@@ -52,7 +58,7 @@ function showNotification(message) {
         navigator.serviceWorker.ready.then(function(registration) {
             registration.showNotification('Checkout Notification', {
                 body: message,
-                icon: '/path/to/notification-icon.png'
+                icon: 'logo.png'
             });
         });
     }
